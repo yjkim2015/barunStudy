@@ -18,9 +18,11 @@ refactor(README.md) 블라블라(수정)
 7) static과 instance의 차이점
 
 [프로젝트]
-게시판(CRUD)
-게시판 배열로 생성
-junit 이용
-배열로 ArrayList처럼 생성
+게시판 배열로 생성, junit 이용, 배열로 ArrayList처럼 생성
+게시판 기능
+- Create
+- Read
+- Update
+- Delete
 
 
