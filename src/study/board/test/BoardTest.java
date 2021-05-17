@@ -20,33 +20,23 @@ public class BoardTest {
 	}
 	
 	@Test
-	public void InsertTest() {
-		testboardService.InsertBoard();
+	public void sameTest() {
+		BoardVo insertVo = new BoardVo();
+		insertVo.setTitle("This is title");
+		insertVo.setContents("This is contents");
+		boardDao.insertBoard(insertVo);
+			
+		BoardVo vo = new BoardVo();
+		vo.setSeqNum(1);
+		BoardVo selectVo = boardDao.selectOneBoard(vo);
+		
+		// 같은 객체 인지 확인
+		Assertions.assertSame(insertVo, selectVo);
+		
+		// 같은 내용 인지 확인
+		Assertions.assertEquals(insertVo.getTitle(), selectVo.getTitle());
+		Assertions.assertEquals(insertVo.getContents(), selectVo.getContents());
 	}
-	
-	@Test
-	public void selectTest() {
-		testboardService.selectBoard();
-	}
-//	
-//	@Test
-//	public void sameTest() {
-//		BoardVo insertVo = new BoardVo();
-//		insertVo.setTitle("This is title");
-//		insertVo.setContents("This is contents");
-//		boardDao.insertBoard(insertVo);
-//			
-//		BoardVo vo = new BoardVo();
-//		vo.setSeqNum(1);
-//		BoardVo selectVo = boardDao.selectOneBoard(vo);
-//		
-//		// 같은 객체 인지 확인
-//		Assertions.assertSame(insertVo, selectVo);
-//		
-//		// 같은 내용 인지 확인
-//		Assertions.assertEquals(insertVo.getTitle(), selectVo.getTitle());
-//		Assertions.assertEquals(insertVo.getContents(), selectVo.getContents());
-//	}
 	
 	@After
 	public void after() {

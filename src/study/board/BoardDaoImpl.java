@@ -75,10 +75,14 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public void deleteBoard(BoardVo boardVo) {
+		boolean isCopy = false;
 		for ( int i = 0 ; i < capacity ; i++ ) {
 			if ( boardList[i] != null && boardList[i].getSeqNum() == boardVo.getSeqNum() ) {
-				boardList[i] = null;
-				break;
+				isCopy = true;
+			}
+			if ( isCopy && i < capacity-1 ) {
+				boardList[i] = boardList[i+1];
+				if ( boardList[i] == null ) break;
 			}
 		}
 	}

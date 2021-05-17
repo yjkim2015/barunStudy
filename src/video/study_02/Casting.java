@@ -4,8 +4,8 @@ public class Casting {
 
 	public static void main(String[] args) {
 		
-		short shortNum = 32767; 			// 2Byte
-		int intNum = 2147483647;			// 4Byte
+		short shortNum = 32767; 	// 2Byte
+		int intNum = 2147483647;	// 4Byte
 		long longNum = 9223372036854775807L; // 8Byte
 		
 		// 상위타입으로 형변환 (괄호생략가능)
@@ -34,10 +34,10 @@ public class Casting {
 		
 		// 형변환 가능
 		int intNum3 = Integer.valueOf(str3);
-		intNum3 = Integer.parseInt(str3);
+		int intNum4 = Integer.parseInt(str3);
 		
 		// 형변환 에러
-		int intNum4 = Integer.valueOf(str4);
+//		int intNum4 = Integer.valueOf(str4);
 		
 		// 기본적으로 서로 관련없는 데이터 끼리는 형변환이 되지않는다.
 		// ex) int a = (int)true

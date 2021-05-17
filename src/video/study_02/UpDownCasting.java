@@ -25,13 +25,13 @@ public class UpDownCasting {
 		// 앞부분에 (Parent)형변환 생략이 가능하다. 
 		Parent parent2 = new Child(); 	// -> 업캐스팅
 		
-		qwdqwdwqdqwd
+		
 		// 구현되는 인스턴스가 Child타입의 정보를 다들고 있지 않기에 컴파일 오류발생
 //		Child child = new Parent();
 		
 		// 형변환을 시켜준다면 컴파일 오류는 사라지지만 런타임 오류가 발생한다.
-		Child child2s = (Child)new Parent();
-
+		Child child2 = (Child)new Parent();
+		
 		/* 실행 후 JVM이 인스턴스를 Child로 형변환을 하려고 하지만 Child의 데이터가 무엇인지 모르기 때문에 에러가 발생한다.
 		 	속성, 성질이 정해져있지않은 데이터는 JVM이 알수가없다.*/
 		
