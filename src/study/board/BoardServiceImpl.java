@@ -38,14 +38,26 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void deleteBoard(BoardVo boardVo) {
-		boardDao.deleteBoard(boardVo);
-		System.out.println("삭제되었습니다. \n");
+		BoardVo oneBoard = boardDao.selectOneBoard(boardVo);
+		if ( oneBoard == null ) {
+			System.out.println("해당 번호에 대한 게시물이 존재하지 않습니다. \n");
+		}
+		else {
+			boardDao.deleteBoard(boardVo);
+			System.out.println("삭제되었습니다. \n");
+		}
 	}
 
 	@Override
 	public void updateBoard(BoardVo boardVo) {
-		boardDao.updateBoard(boardVo);
-		System.out.println("수정되었습니다. \n");
+		BoardVo oneBoard = boardDao.selectOneBoard(boardVo);
+		if ( oneBoard == null ) {
+			System.out.println("해당 번호에 대한 게시물이 존재하지 않습니다. \n");
+		}
+		else {
+			boardDao.updateBoard(boardVo);
+			System.out.println("수정되었습니다. \n");
+		}
 	}
 
 }

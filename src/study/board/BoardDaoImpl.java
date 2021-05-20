@@ -17,20 +17,32 @@ public class BoardDaoImpl implements BoardDao {
 	private BoardVo[] boardList;
 	
 	public BoardDaoImpl() {
-		this.capacity = 1;
+		this.capacity = 0;
 		this.boardList = new BoardVo[capacity];
 	}
 	
-	private void newBoardList() {
-		capacity += capacity << 1;
-		
+	private void increaseCapacity() {
+		capacity += 1;
 		BoardVo[] newBoardList = new BoardVo[capacity];
 		
 		for ( int i = 0 ; i < boardList.length ; i++ ) {
-			if ( boardList[i] == null ) {
-				break;
-			}
 			newBoardList[i] = boardList[i];
+		}
+		
+		boardList = newBoardList;
+	}
+	
+	private void decreaseCapacity(int removeNum) {
+		capacity -= 1;
+		BoardVo[] newBoardList = new BoardVo[capacity];
+
+		int j = 0;
+		for ( int i = 0 ; i < boardList.length ; i++ ) {
+			if (boardList[i].getSeqNum() == removeNum) {
+				j = 1;
+				continue;
+			}
+			newBoardList[i-j] = boardList[i];
 		}
 		
 		boardList = newBoardList;
@@ -56,35 +68,14 @@ public class BoardDaoImpl implements BoardDao {
 
 	@Override
 	public void insertBoard(BoardVo boardVo) {
+		increaseCapacity();
 		boardVo.setSeqNum(boardSeqNum++);
-		for ( int i = 0 ; i < capacity ; i++ ) {
-			if ( boardList[i] != null ) {
-				if ( i == capacity-1 ) {
-					newBoardList();
-					boardList[i+1] = boardVo;
-					break;
-				}
-				continue;
-			}
-			else {
-				boardList[i] = boardVo;
-				break;
-			}
-		}
+		boardList[capacity-1] = boardVo;
 	}
 
 	@Override
 	public void deleteBoard(BoardVo boardVo) {
-		boolean isCopy = false;
-		for ( int i = 0 ; i < capacity ; i++ ) {
-			if ( boardList[i] != null && boardList[i].getSeqNum() == boardVo.getSeqNum() ) {
-				isCopy = true;
-			}
-			if ( isCopy && i < capacity-1 ) {
-				boardList[i] = boardList[i+1];
-				if ( boardList[i] == null ) break;
-			}
-		}
+		decreaseCapacity(boardVo.getSeqNum());
 	}
 
 	@Override
