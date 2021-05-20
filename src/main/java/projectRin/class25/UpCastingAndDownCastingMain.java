@@ -1,4 +1,5 @@
 package projectRin.class25;
+
 /**
  * Youtube 깜따긔야 자바 프로그래밍 기초 
  * [깜따긔야] 자바 기초 25강 Up Casting과 Down Casting
@@ -22,6 +23,9 @@ public class UpCastingAndDownCastingMain {
 		
 		child1.info();
 		child1.childInfo();
-		
+
+		// 비어져 있는 클래스의 다운캐스팅
+//		child c4 = (Child) new Person(); // 에러: child cannot be resolved to a type
+//		Child2 c5 = (Child2) new Person(); // 런타임 에러: cannot be cast to
 	}
 }
