@@ -70,7 +70,7 @@ public class AnonymousClassMain {
 		System.out.println("age: " + person.getAge());
 		
 		// 익명 클래스에서 생성된 메소드나 필드는 익명클래스 밖에서 접근 불가
-//		t1.display();
+//		person.display();
 		
 		
 		// 인터페이스로도 단일 객체 생성 가능

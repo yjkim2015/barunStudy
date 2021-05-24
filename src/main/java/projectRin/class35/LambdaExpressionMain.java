@@ -9,9 +9,9 @@ package projectRin.class35;
 // @FunctionalInterface: 하나의 메소드만 생성 가능. 람다식으로 구현하기 위한 인터페이스는 하나의 추상메소드만 가지고 있어야 함
 @FunctionalInterface
 interface Math {
-    public int Calc(int first, int second);
+    public int calc(int first, int second);
     
-//    public int Calc2(int first, int second); // 메소드가 2개이상일 경우 컴파일 에러 발생
+//    public int calc2(int first, int second); // 메소드가 2개이상일 경우 컴파일 에러 발생
 }
 
 public class LambdaExpressionMain {
@@ -24,7 +24,7 @@ public class LambdaExpressionMain {
 		 */
 		Math anonymous = new Math() {
 			@Override
-			public int Calc(int first, int second) {
+			public int calc(int first, int second) {
 				return first + second;
 			}
 		};
@@ -32,10 +32,10 @@ public class LambdaExpressionMain {
 		
 		// 함수형 인터페이스 람다
 		Math plusLambda = (first, second) -> first + second;
-		System.out.println(plusLambda.Calc(1, 2));
+		System.out.println(plusLambda.calc(1, 2));
 		
 		Math minusLambda = (first, second) -> first - second;
-		System.out.println(minusLambda.Calc(1, 2));
+		System.out.println(minusLambda.calc(1, 2));
 		
 		String str = "";
 		
