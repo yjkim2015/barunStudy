@@ -10,7 +10,7 @@ public class InnerClassMain {
 		
 		// 1. 중첩 클래스 객체화
 		Outer outer = new Outer(); // Outer 클래스 객체화
-		Outer.Inner inner = outer.new Inner(); // inner 클래스 객체화
+		Outer.Inner inner = new Outer().new Inner(); // inner 클래스 객체화
 		
 		inner.sum();
 		outer.minus();
