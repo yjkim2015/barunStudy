@@ -38,7 +38,7 @@ class Child extends Parent {
 	
 	public Child() {
 		// super 메소드: 부모 클래스의 생성자 호출. 생성자의 가장 위에 위치
-		super();
+		super(); // 부모를 상속 받았으므로 생략해도 자동 호출됨
 		System.out.println("자식 생성자 호출");
 	}
 }
