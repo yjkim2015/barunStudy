@@ -15,6 +15,9 @@ public abstract class Animal {
 		cry(); // 일반 메소드안에 추상메소드 사용 가능
 	}
 	
+	// 일반 메소드는 내용을 써야함
+//	public void eat2();
+	
 	// 추상메소드
 	// abstract 반환타입 메소드이름();
 	//자식클래스는 추상메소드를 무조건 오버라이드해야함
